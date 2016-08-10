@@ -4,6 +4,7 @@
 		"bhttp": "^1.2.1",
 		"object.assign": "^4.0.3",
 		"twitter": "~0.1.19",
-		"cheerio": "~0.20.0"
+		"cheerio": "~0.20.0",
+		"request": "~2.74.0"
 	}
 }

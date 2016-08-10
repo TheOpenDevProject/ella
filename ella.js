@@ -1,8 +1,14 @@
+// Native modules
+var path = require("path");
+// local modules
 var Util = require("util");
 var Bot = require("./lib/irc");
-var profile = require('./ella-profile');
+var profile = require("./ella-profile");
 var Sandbox = require("./lib/sandbox");
 var Shared = require("./shared");
+// NPM modules
+var request = require("request");
+var cheerio = require("cheerio");
 
 var urlRegex = new RegExp("^(http[s]?:\\/\\/(www\\.)?|ftp:\\/\\/(www\\.)?|www\\.){1}([0-9A-Za-z-\\.@:%_\+~#=]+)+((\\.[a-zA-Z]{2,3})+)(/(.)*)?(\\?(.)*)?");
 
@@ -50,17 +56,6 @@ Ella.prototype.ping = function(cx, text) {
 
 Ella.prototype.unrecognized = function(cx, text) {
 	cx.channel.send_reply(cx.sender, "There is no command: "+text);
-};
-
-Ella.prototype.calc = function(context, text) {
-	wolfram.query(text, function (err, result) {
-  		if (err) throw err;
-  		if (result.length >= 1 && ("subpods" in result[1])) {
- 			context.channel.send_reply(context.sender, result[1].subpods[0].text);
- 		} else {
- 			context.channel.send_reply(context.sender, "Sorry, couldn't find a result for that :(");
- 		}
-	});
 };
 
 (new Ella(profile)).init();

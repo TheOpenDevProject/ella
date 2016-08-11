@@ -17,7 +17,7 @@ Here are our reasons for building a new bot:
 * I want to learn Node JS....
 * By Moving to Github means we aremore open and users can view and learn about how the new bot will work.
     
-## Running JavaSript
+## Running JavaScript
 You can run javascript commands on the bot, this will run nodeJS in the background within a docker container (for saftey), then return the result back to the channel.   
 You can also run babel too by using b>   
 ### Usage

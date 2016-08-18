@@ -9,6 +9,7 @@ var Shared = require("./shared");
 // NPM modules
 var request = require("request");
 var cheerio = require("cheerio");
+var heapdump = require("heapdump")
 
 var urlRegex = new RegExp("^(http[s]?:\\/\\/(www\\.)?|ftp:\\/\\/(www\\.)?|www\\.){1}([0-9A-Za-z-\\.@:%_\+~#=]+)+((\\.[a-zA-Z]{2,3})+)(/(.)*)?(\\?(.)*)?");
 
@@ -52,6 +53,7 @@ Ella.prototype.init = function() {
 
 Ella.prototype.ping = function(cx, text) {
 	cx.channel.send_reply (cx.sender, "Pong!");
+	heapdump.writeSnapshot(Date.now() + '.heapsnapshot');
 };
 
 Ella.prototype.unrecognized = function(cx, text) {
